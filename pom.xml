@@ -41,10 +41,10 @@
     <maven>${maven.min.version}</maven>
   </prerequisites>
   <scm>
-    <connection>scm:git:git://github.com/exoplatform/maven-parent-pom.git</connection>
-    <developerConnection>scm:git:git@github.com:exoplatform/maven-parent-pom.git</developerConnection>
+    <connection>scm:git:git://github.com/codenvy/maven-parent-pom.git</connection>
+    <developerConnection>scm:git:git@github.com:codenvy/maven-parent-pom.git</developerConnection>
     <tag>HEAD</tag>
-    <url>https://fisheye.exoplatform.org/browse/maven-parent-pom</url>
+    <url>https://fisheye.codenvy.com/browse/maven-parent-pom</url>
   </scm>
   <issueManagement>
     <system>jira</system>
@@ -73,17 +73,17 @@
     <!-- **************************************** -->
     <!-- Jira Settings                            -->
     <!-- **************************************** -->
-    <jira.base.url>https://jira.exoplatform.org</jira.base.url>
+    <jira.base.url>https://jira.codenvy.com</jira.base.url>
     <jira.project.key>PAR</jira.project.key>
     <!-- **************************************** -->
     <!-- Jenkins Settings                         -->
     <!-- **************************************** -->
-    <jenkins.base.url>https://ci.exoplatform.org</jenkins.base.url>
+    <jenkins.base.url>https://ci.codenvy.com</jenkins.base.url>
     <jenkins.job.name>maven-parent-pom-master-ci</jenkins.job.name>
     <!-- **************************************** -->
     <!-- Sonar Settings                           -->
     <!-- **************************************** -->
-    <sonar.host.url>https://sonar.exoplatform.org/</sonar.host.url>
+    <sonar.host.url>https://sonar.codenvy.org/</sonar.host.url>
     <!-- **************************************** -->
     <!-- Repositories URLs                        -->
     <!-- Using DAV for large artifacts - PAR-156  -->
@@ -94,7 +94,7 @@
     <!-- **************************************** -->
     <!-- Site URL                                 -->
     <!-- **************************************** -->
-    <site.url>https://projects.exoplatform.org</site.url>
+    <site.url>https://codenvy.com</site.url>
     <site.deploy.url>dav:${site.url}</site.deploy.url>
     <!-- **************** -->
     <!-- Plugins versions -->
