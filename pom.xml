@@ -88,8 +88,8 @@
     <!-- Repositories URLs                        -->
     <!-- Using DAV for large artifacts - PAR-156  -->
     <!-- **************************************** -->
-    <exo.releases.repo.url>dav:http://repository.exoplatform.org/service/local/staging/deploy/maven2/</exo.releases.repo.url>
-    <exo.snapshots.repo.url>dav:http://repository.exoplatform.org/content/repositories/exo-snapshots</exo.snapshots.repo.url>
+    <exo.releases.repo.url>http://repository.exoplatform.org/service/local/staging/deploy/maven2/</exo.releases.repo.url>
+    <exo.snapshots.repo.url>http://repository.exoplatform.org/content/repositories/exo-snapshots</exo.snapshots.repo.url>
     <exo.public.repo.url>http://repository.exoplatform.org/public/</exo.public.repo.url>
     <!-- **************************************** -->
     <!-- Site URL                                 -->
