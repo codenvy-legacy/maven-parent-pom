@@ -86,7 +86,6 @@
     <sonar.host.url>https://sonar.codenvy.org/</sonar.host.url>
     <!-- **************************************** -->
     <!-- Repositories URLs                        -->
-    <!-- Using DAV for large artifacts - PAR-156  -->
     <!-- **************************************** -->
     <exo.releases.repo.url>http://repository.exoplatform.org/service/local/staging/deploy/maven2/</exo.releases.repo.url>
     <exo.snapshots.repo.url>http://repository.exoplatform.org/content/repositories/exo-snapshots</exo.snapshots.repo.url>
@@ -95,7 +94,7 @@
     <!-- Site URL                                 -->
     <!-- **************************************** -->
     <site.url>https://codenvy.com</site.url>
-    <site.deploy.url>dav:${site.url}</site.deploy.url>
+    <site.deploy.url>${site.url}</site.deploy.url>
     <!-- **************** -->
     <!-- Plugins versions -->
     <!-- **************** -->
