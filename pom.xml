@@ -21,7 +21,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.codenvy</groupId>
   <artifactId>maven-parent-pom</artifactId>
-  <version>1.0.0</version>
+  <version>1.1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Codenvy parent POM</name>
   <description>Provides default project configuration for Codenvy projects</description>
@@ -43,7 +43,7 @@
   <scm>
     <connection>scm:git:git://github.com/codenvy/maven-parent-pom.git</connection>
     <developerConnection>scm:git:git@github.com:codenvy/maven-parent-pom.git</developerConnection>
-    <tag>1.0.0</tag>
+    <tag>HEAD</tag>
     <url>https://fisheye.codenvy.com/browse/maven-parent-pom</url>
   </scm>
   <issueManagement>
