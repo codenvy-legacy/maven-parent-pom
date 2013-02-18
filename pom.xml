@@ -634,9 +634,7 @@
             <useReleaseProfile>false</useReleaseProfile>
             <autoVersionSubmodules>true</autoVersionSubmodules>
             <arguments>-Pexo-release ${arguments}</arguments>
-            <providerImplementations>
-              <svn>javasvn</svn>
-            </providerImplementations>
+	    <tagNameFormat>v@{project.version}</tagNameFormat>
           </configuration>
         </plugin>
         <plugin>
