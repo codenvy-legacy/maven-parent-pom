@@ -634,7 +634,7 @@
             <useReleaseProfile>false</useReleaseProfile>
             <autoVersionSubmodules>true</autoVersionSubmodules>
             <arguments>-Pexo-release ${arguments}</arguments>
-	    <tagNameFormat>v@{project.version}</tagNameFormat>
+            <tagNameFormat>@{project.version}</tagNameFormat>
           </configuration>
         </plugin>
         <plugin>
