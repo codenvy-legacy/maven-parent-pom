@@ -131,6 +131,7 @@
     <version.install.plugin>2.4</version.install.plugin>
     <version.invoker.plugin>1.8</version.invoker.plugin>
     <version.jar.plugin>2.4</version.jar.plugin>
+    <version.jarjar.plugin>1.7</version.jarjar.plugin>
     <version.javacc.plugin>2.6</version.javacc.plugin>
     <version.javadoc.plugin>2.9</version.javadoc.plugin>
     <version.javancss.plugin>2.0</version.javancss.plugin>
@@ -514,6 +515,11 @@
             </archive>
           </configuration>
         </plugin>
+          <plugin>
+              <groupId>org.sonatype.plugins</groupId>
+              <artifactId>jarjar-maven-plugin</artifactId>
+              <version>${version.jarjar.plugin}</version>
+          </plugin>
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>javacc-maven-plugin</artifactId>
