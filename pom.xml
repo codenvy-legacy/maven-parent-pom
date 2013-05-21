@@ -21,7 +21,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.codenvy</groupId>
   <artifactId>maven-parent-pom</artifactId>
-  <version>1.0.2-SNAPSHOT</version>
+  <version>1.1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Codenvy parent POM</name>
   <description>Provides default project configuration for Codenvy projects</description>
@@ -182,8 +182,8 @@
     <!-- maven-clirr-plugin -->
     <textOutputFile>${project.build.directory}/clirr-report.txt</textOutputFile>
     <!-- maven-compiler-plugin -->
-    <maven.compiler.target>1.6</maven.compiler.target>
-    <maven.compiler.source>1.6</maven.compiler.source>
+    <maven.compiler.target>1.7</maven.compiler.target>
+    <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
     <maven.compiler.showWarnings>true</maven.compiler.showWarnings>
     <maven.compiler.optimize>true</maven.compiler.optimize>
