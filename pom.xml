@@ -22,7 +22,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.codenvy</groupId>
   <artifactId>maven-parent-pom</artifactId>
-  <version>1.2.1-SNAPSHOT</version>
+  <version>2.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Codenvy parent POM</name>
   <description>Provides default project configuration for Codenvy projects</description>
@@ -57,20 +57,20 @@
   </ciManagement>
   <distributionManagement>
     <repository>
-      <id>repository.exoplatform.org</id>
-      <url>${exo.releases.repo.url}</url>
+      <id>repo.codenvy.private</id>
+      <url>${maven.releases.repo.url}</url>
     </repository>
     <snapshotRepository>
-      <id>repository.exoplatform.org</id>
-      <url>${exo.snapshots.repo.url}</url>
+      <id>repo.codenvy.private</id>
+      <url>${maven.snapshots.repo.url}</url>
     </snapshotRepository>
     <site>
-      <id>repository.exoplatform.org</id>
+      <id>repo.codenvy.private</id>
       <url>${site.deploy.url}</url>
     </site>
   </distributionManagement>
   <properties>
-    <exo.product.name>${project.name}</exo.product.name>
+    <product.name>${project.name}</product.name>
     <!-- **************************************** -->
     <!-- Jira Settings                            -->
     <!-- **************************************** -->
@@ -84,13 +84,13 @@
     <!-- **************************************** -->
     <!-- Sonar Settings                           -->
     <!-- **************************************** -->
-    <sonar.host.url>https://sonar.codenvy.org/</sonar.host.url>
+    <!--sonar.host.url>https://sonar.codenvy.org/</sonar.host.url-->
     <!-- **************************************** -->
     <!-- Repositories URLs                        -->
     <!-- **************************************** -->
-    <exo.releases.repo.url>http://repository.exoplatform.org/service/local/staging/deploy/maven2/</exo.releases.repo.url>
-    <exo.snapshots.repo.url>http://repository.exoplatform.org/content/repositories/exo-private-snapshots</exo.snapshots.repo.url>
-    <exo.public.repo.url>http://repository.exoplatform.org/public/</exo.public.repo.url>
+    <maven.releases.repo.url>http://maven.codenvycorp.com/content/repositories/codenvy-private-releases/</maven.releases.repo.url>
+    <maven.snapshots.repo.url>http://maven.codenvycorp.com/content/repositories/codenvy-private-snapshots/</maven.snapshots.repo.url>
+    <maven.private.repo.url>http://maven.codenvycorp.com/content/groups/codenvy-public-group/</maven.private.repo.url>
     <!-- **************************************** -->
     <!-- Site URL                                 -->
     <!-- **************************************** -->
@@ -189,7 +189,7 @@
     <maven.compiler.showWarnings>true</maven.compiler.showWarnings>
     <maven.compiler.optimize>true</maven.compiler.optimize>
     <!-- maven-dependency-plugin -->
-    <repoUrl>${exo.public.repo.url}</repoUrl>
+    <repoUrl>${maven.private.repo.url}</repoUrl>
     <!-- maven-enforcer-plugin -->
     <maven.min.version>3.0.4</maven.min.version>
     <jdk.min.version>${maven.compiler.source}</jdk.min.version>
@@ -353,7 +353,7 @@
                 <Implementation-URL>${project.url}</Implementation-URL>
                 <SCM-URL>${project.scm.connection}</SCM-URL>
                 <SCM-Revision>${buildNumber}</SCM-Revision>
-                <Specification-Title>${exo.product.name}</Specification-Title>
+                <Specification-Title>${product.name}</Specification-Title>
                 <Specification-Version>${parsedVersion.majorVersion}.0</Specification-Version>
                 <Specification-Vendor>${project.organization.name}</Specification-Vendor>
                 <Implementation-Title>${project.name}</Implementation-Title>
@@ -399,7 +399,7 @@
                 <Implementation-URL>${project.url}</Implementation-URL>
                 <SCM-URL>${project.scm.connection}</SCM-URL>
                 <SCM-Revision>${buildNumber}</SCM-Revision>
-                <Specification-Title>${exo.product.name}</Specification-Title>
+                <Specification-Title>${product.name}</Specification-Title>
                 <Specification-Version>${parsedVersion.majorVersion}.0</Specification-Version>
                 <Specification-Vendor>${project.organization.name}</Specification-Vendor>
                 <Implementation-Title>${project.name}</Implementation-Title>
@@ -506,7 +506,7 @@
                 <Implementation-URL>${project.url}</Implementation-URL>
                 <SCM-URL>${project.scm.connection}</SCM-URL>
                 <SCM-Revision>${buildNumber}</SCM-Revision>
-                <Specification-Title>${exo.product.name}</Specification-Title>
+                <Specification-Title>${product.name}</Specification-Title>
                 <Specification-Version>${parsedVersion.majorVersion}.0</Specification-Version>
                 <Specification-Vendor>${project.organization.name}</Specification-Vendor>
                 <Implementation-Title>${project.name}</Implementation-Title>
@@ -541,7 +541,7 @@
                 <Implementation-URL>${project.url}</Implementation-URL>
                 <SCM-URL>${project.scm.connection}</SCM-URL>
                 <SCM-Revision>${buildNumber}</SCM-Revision>
-                <Specification-Title>${exo.product.name}</Specification-Title>
+                <Specification-Title>${product.name}</Specification-Title>
                 <Specification-Version>${parsedVersion.majorVersion}.0</Specification-Version>
                 <Specification-Vendor>${project.organization.name}</Specification-Vendor>
                 <Implementation-Title>${project.name}</Implementation-Title>
@@ -640,7 +640,7 @@
             <goals>deploy</goals>
             <useReleaseProfile>false</useReleaseProfile>
             <autoVersionSubmodules>true</autoVersionSubmodules>
-            <arguments>-Pexo-release ${arguments}</arguments>
+            <arguments>-Pcodenvy-release ${arguments}</arguments>
             <tagNameFormat>@{project.version}</tagNameFormat>
           </configuration>
         </plugin>
@@ -705,7 +705,7 @@
                 <Implementation-URL>${project.url}</Implementation-URL>
                 <SCM-URL>${project.scm.connection}</SCM-URL>
                 <SCM-Revision>${buildNumber}</SCM-Revision>
-                <Specification-Title>${exo.product.name}</Specification-Title>
+                <Specification-Title>${product.name}</Specification-Title>
                 <Specification-Version>${parsedVersion.majorVersion}.0</Specification-Version>
                 <Specification-Vendor>${project.organization.name}</Specification-Vendor>
                 <Implementation-Title>${project.name}</Implementation-Title>
@@ -752,7 +752,7 @@
                 <Implementation-URL>${project.url}</Implementation-URL>
                 <SCM-URL>${project.scm.connection}</SCM-URL>
                 <SCM-Revision>${buildNumber}</SCM-Revision>
-                <Specification-Title>${exo.product.name}</Specification-Title>
+                <Specification-Title>${product.name}</Specification-Title>
                 <Specification-Version>${parsedVersion.majorVersion}.0</Specification-Version>
                 <Specification-Vendor>${project.organization.name}</Specification-Vendor>
                 <Implementation-Title>${project.name}</Implementation-Title>
@@ -986,7 +986,7 @@
     </profile>
     <!-- This profile is activated when a project is released. -->
     <profile>
-      <id>exo-release</id>
+      <id>codenvy-release</id>
       <properties>
         <!-- Additional properties to activate the compression of already compressed archives - time expensive -->
         <maven.assembly.recompressZippedFiles>true</maven.assembly.recompressZippedFiles>
