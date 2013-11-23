@@ -732,6 +732,10 @@
           <configuration>
             <expandEmptyElements>false</expandEmptyElements>
             <nrOfIndentSpace>4</nrOfIndentSpace>		
+            <createBackupFile>false</createBackupFile>
+            <sortProperties>true</sortProperties>
+            <sortDependencies>scope,groupId,artifactId</sortDependencies>
+            <sortPlugins>groupId,artifactId</sortPlugins>
           </configuration>
         </plugin>
         <plugin>
