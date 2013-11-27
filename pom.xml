@@ -1,28 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-    CODENVY CONFIDENTIAL
-    __________________
+    Copyright (C) 2003-2013 Codenvy.
 
-     [2012] - [2013] Codenvy, S.A.
-     All Rights Reserved.
+    This is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Lesser General Public License as
+    published by the Free Software Foundation; either version 3 of
+    the License, or (at your option) any later version.
 
-    NOTICE:  All information contained herein is, and remains
-    the property of Codenvy S.A. and its suppliers,
-    if any.  The intellectual and technical concepts contained
-    herein are proprietary to Codenvy S.A.
-    and its suppliers and may be covered by U.S. and Foreign Patents,
-    patents in process, and are protected by trade secret or copyright law.
-    Dissemination of this information or reproduction of this material
-    is strictly forbidden unless prior written permission is obtained
-    from Codenvy S.A..
+    This software is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public
+    License along with this software; if not, write to the Free
+    Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+    02110-1301 USA, or see the FSF site: http://www.fsf.org.
 
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.codenvy</groupId>
   <artifactId>maven-parent-pom</artifactId>
-  <version>2.0.2-SNAPSHOT</version>
+  <version>3.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Codenvy parent POM</name>
   <description>Provides default project configuration for Codenvy projects</description>
@@ -33,7 +34,7 @@
   </organization>
   <licenses>
     <license>
-      <name>GNU Affero General Public License, Version 3.0</name>
+      <name>GNU Lesser General Public License, Version 3.0</name>
       <url>http://www.gnu.org/licenses/agpl-3.0.txt</url>
       <distribution>repo</distribution>
     </license>
@@ -88,8 +89,8 @@
     <!-- **************************************** -->
     <!-- Repositories URLs                        -->
     <!-- **************************************** -->
-    <maven.releases.repo.url>https://maven.codenvycorp.com/content/repositories/codenvy-private-releases/</maven.releases.repo.url>
-    <maven.snapshots.repo.url>https://maven.codenvycorp.com/content/repositories/codenvy-private-snapshots/</maven.snapshots.repo.url>
+    <maven.releases.repo.url>https://maven.codenvycorp.com/content/repositories/codenvy-public-releases/</maven.releases.repo.url>
+    <maven.snapshots.repo.url>https://maven.codenvycorp.com/content/repositories/codenvy-public-snapshots/</maven.snapshots.repo.url>
     <maven.private.repo.url>https://maven.codenvycorp.com/content/groups/codenvy-public-group/</maven.private.repo.url>
     <!-- **************************************** -->
     <!-- Site URL                                 -->
@@ -99,79 +100,87 @@
     <!-- **************** -->
     <!-- Plugins versions -->
     <!-- **************** -->
-    <version.android.plugin>3.5.0</version.android.plugin>
+    <version.android.plugin>3.6.1</version.android.plugin>
     <version.antrun.plugin>1.7</version.antrun.plugin>
     <version.archetype.plugin>2.2</version.archetype.plugin>
     <version.aspectj.plugin>1.4</version.aspectj.plugin>
     <version.assembly.plugin>2.4</version.assembly.plugin>
-    <version.buildhelper.plugin>1.7</version.buildhelper.plugin>
+    <version.buildhelper.plugin>1.8</version.buildhelper.plugin>
     <version.buildnumber.plugin>1.2</version.buildnumber.plugin>
-    <version.cargo.plugin>1.3.1</version.cargo.plugin>
+    <version.cargo.plugin>1.4.4</version.cargo.plugin>
     <version.clean.plugin>2.5</version.clean.plugin>
-    <version.changes.plugin>2.8</version.changes.plugin>
-    <version.checkstyle.plugin>2.9.1</version.checkstyle.plugin>
+    <version.changes.plugin>2.9</version.changes.plugin>
+    <version.checkstyle.plugin>2.10</version.checkstyle.plugin>
     <version.clirr.plugin>2.5</version.clirr.plugin>
-    <version.compiler.plugin>3.0</version.compiler.plugin>
+    <version.compiler.plugin>3.1</version.compiler.plugin>
     <version.copy.plugin>0.2.5</version.copy.plugin>
-    <version.dependency.plugin>2.6</version.dependency.plugin>
-    <version.deploy.plugin>2.7</version.deploy.plugin>
+    <version.dependency.plugin>2.8</version.dependency.plugin>
+    <version.deploy.plugin>2.8.1</version.deploy.plugin>
     <version.docck.plugin>1.0</version.docck.plugin>
     <version.docbkx.plugin>2.0.14</version.docbkx.plugin>
+    <version.duplicate-finder.plugin>1.0.4</version.duplicate-finder.plugin>
     <version.eclipse.plugin>2.9</version.eclipse.plugin>
     <version.ear.plugin>2.8</version.ear.plugin>
     <version.ejb.plugin>2.3</version.ejb.plugin>
-    <version.enforcer.plugin>1.2</version.enforcer.plugin>
+    <version.enforcer.plugin>1.3.1</version.enforcer.plugin>
     <version.exec.plugin>1.2.1</version.exec.plugin>
     <version.exobuild.plugin>1.2.2</version.exobuild.plugin>
     <version.exopc.plugin>1.0.5</version.exopc.plugin>
     <version.failsafe.plugin>${version.surefire.plugin}</version.failsafe.plugin>
     <version.findbugs.plugin>2.5.2</version.findbugs.plugin>
+    <version.gmaven.plugin>1.5</version.gmaven.plugin>
     <version.gpg.plugin>1.4</version.gpg.plugin>
-    <version.gwt.plugin>2.5.0</version.gwt.plugin>
-    <version.idea.plugin>2.2</version.idea.plugin>
-    <version.install.plugin>2.4</version.install.plugin>
+    <!-- Must be kept in sync with maven-depmgt-pom GWT version -->
+    <version.gwt.plugin>2.5.1</version.gwt.plugin>
+    <version.idea.plugin>2.2.1</version.idea.plugin>
+    <version.install.plugin>2.5.1</version.install.plugin>
     <version.invoker.plugin>1.8</version.invoker.plugin>
     <version.jar.plugin>2.4</version.jar.plugin>
     <version.jarjar.plugin>1.7</version.jarjar.plugin>
     <version.javacc.plugin>2.6</version.javacc.plugin>
-    <version.javadoc.plugin>2.9</version.javadoc.plugin>
+    <version.javadoc.plugin>2.9.1</version.javadoc.plugin>
     <version.javancss.plugin>2.0</version.javancss.plugin>
     <version.jaxb2.plugin>1.5</version.jaxb2.plugin>
     <version.jdepend.plugin>2.0-beta-2</version.jdepend.plugin>
     <!-- PAR-222 : jdocbook 2.3.6+ has a perf issue. See MPJDOCBOOK-84 -->
     <version.jdocbook.plugin>2.3.5</version.jdocbook.plugin>
-    <version.jibx.plugin>1.2.4.5</version.jibx.plugin>
-    <version.jmeter.plugin>1.7.0</version.jmeter.plugin>
+    <version.jibx.plugin>1.2.5</version.jibx.plugin>
+    <version.jmeter.plugin>1.8.1</version.jmeter.plugin>
     <version.jodconverter.plugin>2.2.1</version.jodconverter.plugin>
+    <version.jstools.plugin>0.7</version.jstools.plugin>
     <version.jxr.plugin>2.3</version.jxr.plugin>
-    <version.lesscss.plugin>1.3.0</version.lesscss.plugin>
-    <version.project-info-reports.plugin>2.6</version.project-info-reports.plugin>
+    <version.lesscss.plugin>1.3.3</version.lesscss.plugin>
+    <version.license.plugin>1.5</version.license.plugin>
+    <version.mycila-license.plugin>2.5</version.mycila-license.plugin>
+    <version.project-info-reports.plugin>2.7</version.project-info-reports.plugin>
     <version.plexus.plugin>1.3.8</version.plexus.plugin>
     <version.plugin.plugin>3.2</version.plugin.plugin>
-    <version.pmd.plugin>2.7.1</version.pmd.plugin>
+    <version.pmd.plugin>3.0.1</version.pmd.plugin>
     <version.rar.plugin>2.3</version.rar.plugin>
-    <version.release.plugin>2.4</version.release.plugin>
-    <version.remote-resources.plugin.version>1.4</version.remote-resources.plugin.version>
+    <version.release.plugin>2.4.2</version.release.plugin>
+    <version.remote-resources.plugin.version>1.5</version.remote-resources.plugin.version>
     <version.resources.plugin>2.6</version.resources.plugin>
     <version.selenium.plugin>2.3</version.selenium.plugin>
-    <version.site.plugin>3.2</version.site.plugin>
+    <version.shade.plugin>2.1</version.shade.plugin>
+    <version.site.plugin>3.3</version.site.plugin>
     <version.sonar-maven-report.plugin>0.1</version.sonar-maven-report.plugin>
-    <version.sortpom.plugin>2.1.0</version.sortpom.plugin>
+    <version.sortpom.plugin>2.2</version.sortpom.plugin>
     <version.source.plugin>2.2.1</version.source.plugin>
-    <version.surefire.plugin>2.13</version.surefire.plugin>
+    <version.surefire.plugin>2.15</version.surefire.plugin>
     <version.taglist.plugin>2.4</version.taglist.plugin>
-    <version.versions.plugin>2.0</version.versions.plugin>
-    <version.war.plugin>2.3</version.war.plugin>
-    <version.wikbook.plugin>0.9.42</version.wikbook.plugin>
+    <version.tomcat7.plugin>2.2</version.tomcat7.plugin>
+    <version.versions.plugin>2.1</version.versions.plugin>
+    <version.war.plugin>2.4</version.war.plugin>
+    <version.wikbook.plugin>0.9.45</version.wikbook.plugin>
     <version.xml.plugin>1.0</version.xml.plugin>
     <version.yuicompressor.plugin>0.7.1</version.yuicompressor.plugin>
     <!-- *************** -->
     <!-- Others versions -->
     <!-- *************** -->
-    <version.animal-sniffer.enforcer-rule>1.8</version.animal-sniffer.enforcer-rule>
-    <version.wagon-webdav-jackrabbit>2.2</version.wagon-webdav-jackrabbit>
+    <version.animal-sniffer.enforcer-rule>1.9</version.animal-sniffer.enforcer-rule>
+    <version.wagon>2.5</version.wagon>
     <!-- PAR-193 : performances boost workaround -->
-    <version.plexus-utils>3.0.8</version.plexus-utils>
+    <version.plexus-utils>3.0.15</version.plexus-utils>
     <!-- PAR-155 : Produce project sources package distribution -->
     <version.apache-source-release-assembly-descriptor>1.0.4</version.apache-source-release-assembly-descriptor>
     <!-- ************** -->
@@ -195,10 +204,14 @@
     <jdk.min.version>${maven.compiler.source}</jdk.min.version>
     <!-- To configure animal-sniffer to check API compat -->
     <animal-sniffer.signature.groupId>org.codehaus.mojo.signature</animal-sniffer.signature.groupId>
-    <animal-sniffer.signature.artifactId>java17</animal-sniffer.signature.artifactId>
-    <animal-sniffer.signature.version>1.0</animal-sniffer.signature.version>
+    <animal-sniffer.signature.artifactId>java16</animal-sniffer.signature.artifactId>
+    <animal-sniffer.signature.version>1.1</animal-sniffer.signature.version>
+    <!-- Extra enforcer rules -->
+    <extra-enforcer-rules.version>1.0-beta-1</extra-enforcer-rules.version>
     <!-- The version of maven-scm-provider-svnjava to use -->
-    <maven-scm-provider-svnjava.version>2.0.5</maven-scm-provider-svnjava.version>
+    <maven-scm-provider-svnjava.version>2.0.6</maven-scm-provider-svnjava.version>
+    <!-- gmaven-plugin -->
+    <gmaven-plugin.providerSelection>2.0</gmaven-plugin.providerSelection>
     <!-- maven-gpg-plugin -->
     <gpg.useagent>true</gpg.useagent>
     <!-- maven-idea-plugin & maven-eclipse-plugin -->
@@ -224,7 +237,18 @@
       <extension>
         <groupId>org.apache.maven.wagon</groupId>
         <artifactId>wagon-webdav-jackrabbit</artifactId>
-        <version>${version.wagon-webdav-jackrabbit}</version>
+        <!-- 2.5 doesn't work : java.lang.ClassNotFoundException: org.apache.commons.logging.LogFactory -->
+        <version>2.4</version>
+      </extension>
+      <extension>
+        <groupId>org.apache.maven.wagon</groupId>
+        <artifactId>wagon-file</artifactId>
+        <version>${version.wagon}</version>
+      </extension>
+      <extension>
+        <groupId>org.apache.maven.wagon</groupId>
+        <artifactId>wagon-http</artifactId>
+        <version>${version.wagon}</version>
       </extension>
     </extensions>
     <pluginManagement>
@@ -331,6 +355,11 @@
           <version>${version.docck.plugin}</version>
         </plugin>
         <plugin>
+          <groupId>com.ning.maven.plugins</groupId>
+          <artifactId>maven-duplicate-finder-plugin</artifactId>
+          <version>${version.duplicate-finder.plugin}</version>
+        </plugin>
+        <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-ear-plugin</artifactId>
           <version>${version.ear.plugin}</version>
@@ -413,6 +442,18 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-enforcer-plugin</artifactId>
           <version>${version.enforcer.plugin}</version>
+          <dependencies>
+            <dependency>
+              <groupId>org.codehaus.mojo</groupId>
+              <artifactId>extra-enforcer-rules</artifactId>
+              <version>${extra-enforcer-rules.version}</version>
+            </dependency>
+            <dependency>
+              <groupId>org.codehaus.mojo</groupId>
+              <artifactId>animal-sniffer-enforcer-rule</artifactId>
+              <version>${version.animal-sniffer.enforcer-rule}</version>
+            </dependency>
+          </dependencies>
         </plugin>
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
@@ -447,6 +488,11 @@
           <version>${version.findbugs.plugin}</version>
         </plugin>
         <plugin>
+          <groupId>org.codehaus.gmaven</groupId>
+          <artifactId>gmaven-plugin</artifactId>
+          <version>${version.gmaven.plugin}</version>
+        </plugin>
+        <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-gpg-plugin</artifactId>
           <version>${version.gpg.plugin}</version>
@@ -477,14 +523,6 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-install-plugin</artifactId>
           <version>${version.install.plugin}</version>
-          <dependencies>
-            <!-- PAR-193 : To be removed when the plugin will have a version of plexus-utils >= 3.0.7 -->
-            <dependency>
-              <groupId>org.codehaus.plexus</groupId>
-              <artifactId>plexus-utils</artifactId>
-              <version>${version.plexus-utils}</version>
-            </dependency>
-          </dependencies>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -587,6 +625,11 @@
           <version>${version.jodconverter.plugin}</version>
         </plugin>
         <plugin>
+          <groupId>gr.abiss.mvn.plugins</groupId>
+          <artifactId>maven-jstools-plugin</artifactId>
+          <version>${version.jstools.plugin}</version>
+        </plugin>
+        <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-jxr-plugin</artifactId>
           <version>${version.jxr.plugin}</version>
@@ -610,15 +653,7 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-pmd-plugin</artifactId>
           <version>${version.pmd.plugin}</version>
-          <dependencies>
-            <!-- PAR-193 : To be removed when the plugin will have a version of plexus-utils >= 3.0.7 -->
-            <dependency>
-              <groupId>org.codehaus.plexus</groupId>
-              <artifactId>plexus-utils</artifactId>
-              <version>${version.plexus-utils}</version>
-            </dependency>
-          </dependencies>
-        </plugin>
+           </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-rar-plugin</artifactId>
@@ -681,6 +716,11 @@
           </dependencies>
         </plugin>
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-shade-plugin</artifactId>
+          <version>${version.shade.plugin}</version>
+        </plugin>
+        <plugin>
           <groupId>org.codehaus.sonar-plugins</groupId>
           <artifactId>maven-report</artifactId>
           <version>${version.sonar-maven-report.plugin}</version>
@@ -689,6 +729,14 @@
           <groupId>com.google.code.sortpom</groupId>
           <artifactId>maven-sortpom-plugin</artifactId>
           <version>${version.sortpom.plugin}</version>
+          <configuration>
+            <expandEmptyElements>false</expandEmptyElements>
+            <nrOfIndentSpace>4</nrOfIndentSpace>		
+            <createBackupFile>false</createBackupFile>
+            <sortProperties>true</sortProperties>
+            <sortDependencies>scope,groupId,artifactId</sortDependencies>
+            <sortPlugins>groupId,artifactId</sortPlugins>
+          </configuration>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -731,6 +779,11 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-report-plugin</artifactId>
           <version>${version.surefire.plugin}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.tomcat.maven</groupId>
+          <artifactId>tomcat7-maven-plugin</artifactId>
+          <version>${version.tomcat7.plugin}</version>
         </plugin>
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
@@ -1033,13 +1086,6 @@
                 </configuration>
               </execution>
             </executions>
-            <dependencies>
-              <dependency>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>animal-sniffer-enforcer-rule</artifactId>
-                <version>${version.animal-sniffer.enforcer-rule}</version>
-              </dependency>
-            </dependencies>
           </plugin>
           <!-- 
             Generates Javadoc
