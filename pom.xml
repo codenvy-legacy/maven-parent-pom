@@ -1141,8 +1141,8 @@
               </dependency>
             </dependencies>
           </plugin>
-          <!-- We don't want to sign the artifact, the POM, and all attached artifacts -->
-          <!-- plugin>
+          <!-- We want to sign the artifact, the POM, and all attached artifacts -->
+          <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-gpg-plugin</artifactId>
             <executions>
@@ -1154,7 +1154,7 @@
                 </goals>
               </execution>
             </executions>
-          </plugin-->
+          </plugin>
           <!-- Validate wellformedness of (almost) all XML files -->
           <plugin>
             <groupId>org.codehaus.mojo</groupId>
