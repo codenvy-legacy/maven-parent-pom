@@ -89,8 +89,8 @@
     <!-- **************************************** -->
     <!-- Repositories URLs                        -->
     <!-- **************************************** -->
-    <maven.releases.repo.url>https://maven.codenvycorp.com/content/repositories/codenvy-private-releases/</maven.releases.repo.url>
-    <maven.snapshots.repo.url>https://maven.codenvycorp.com/content/repositories/codenvy-private-snapshots/</maven.snapshots.repo.url>
+    <maven.releases.repo.url>https://maven.codenvycorp.com/content/repositories/codenvy-public-releases/</maven.releases.repo.url>
+    <maven.snapshots.repo.url>https://maven.codenvycorp.com/content/repositories/codenvy-public-snapshots/</maven.snapshots.repo.url>
     <maven.private.repo.url>https://maven.codenvycorp.com/content/groups/codenvy-public-group/</maven.private.repo.url>
     <!-- **************************************** -->
     <!-- Site URL                                 -->
