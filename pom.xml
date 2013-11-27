@@ -204,7 +204,7 @@
     <jdk.min.version>${maven.compiler.source}</jdk.min.version>
     <!-- To configure animal-sniffer to check API compat -->
     <animal-sniffer.signature.groupId>org.codehaus.mojo.signature</animal-sniffer.signature.groupId>
-    <animal-sniffer.signature.artifactId>java16</animal-sniffer.signature.artifactId>
+    <animal-sniffer.signature.artifactId>java17</animal-sniffer.signature.artifactId>
     <animal-sniffer.signature.version>1.1</animal-sniffer.signature.version>
     <!-- Extra enforcer rules -->
     <extra-enforcer-rules.version>1.0-beta-1</extra-enforcer-rules.version>
