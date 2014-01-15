@@ -23,7 +23,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.codenvy</groupId>
   <artifactId>maven-parent-pom</artifactId>
-  <version>3.0.2-SNAPSHOT</version>
+  <version>3.1.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Codenvy parent POM</name>
   <description>Provides default project configuration for Codenvy projects</description>
@@ -200,7 +200,7 @@
     <!-- maven-dependency-plugin -->
     <repoUrl>${maven.private.repo.url}</repoUrl>
     <!-- maven-enforcer-plugin -->
-    <maven.min.version>3.0.4</maven.min.version>
+    <maven.min.version>3.1.1</maven.min.version>
     <jdk.min.version>${maven.compiler.source}</jdk.min.version>
     <!-- To configure animal-sniffer to check API compat -->
     <animal-sniffer.signature.groupId>org.codehaus.mojo.signature</animal-sniffer.signature.groupId>
