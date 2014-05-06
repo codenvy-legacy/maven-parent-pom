@@ -223,7 +223,7 @@
         <version.shade.plugin>2.2</version.shade.plugin>
         <version.site.plugin>3.3</version.site.plugin>
         <version.sonar-maven-report.plugin>0.1</version.sonar-maven-report.plugin>
-        <version.sortpom.plugin>2.2.1</version.sortpom.plugin>
+        <version.sortpom.plugin>2.3.0</version.sortpom.plugin>
         <version.source.plugin>2.2.1</version.source.plugin>
         <version.surefire.plugin>2.15</version.surefire.plugin>
         <version.taglist.plugin>2.4</version.taglist.plugin>
@@ -902,7 +902,7 @@
                 <artifactId>maven-sortpom-plugin</artifactId>
                 <executions>
                     <execution>
-                        <phase>verify</phase>
+                        <phase>validate</phase>
                         <goals>
                             <goal>verify</goal>
                         </goals>
