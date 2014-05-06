@@ -90,12 +90,12 @@
         <!-- **************************************** -->
         <!-- Jenkins Settings                         -->
         <!-- **************************************** -->
-        <jenkins.base.url>https://ci.codenvy.com</jenkins.base.url>
+        <jenkins.base.url>http://ci.codenvy-dev.com</jenkins.base.url>
         <jenkins.job.name>maven-parent-pom-master-ci</jenkins.job.name>
         <!-- **************************************** -->
         <!-- Jira Settings                            -->
         <!-- **************************************** -->
-        <jira.base.url>https://jira.codenvy.com</jira.base.url>
+        <jira.base.url>https://jira.codenvycorp.com</jira.base.url>
         <jira.project.key>PAR</jira.project.key>
         <maven-model.version>3.0.5</maven-model.version>
         <!-- This version is necessary for use with git version 1.8.5 - PAR-286-->
@@ -218,6 +218,7 @@
         <version.project-info-reports.plugin>2.7</version.project-info-reports.plugin>
         <version.project-info-reports.plugin>2.7</version.project-info-reports.plugin>
         <version.rar.plugin>2.3</version.rar.plugin>
+        <version.rat.plugin>0.10</version.rat.plugin>
         <version.release.plugin>2.4.2</version.release.plugin>
         <version.remote-resources.plugin.version>1.5</version.remote-resources.plugin.version>
         <version.replacer.plugin>1.5.2</version.replacer.plugin>
@@ -1012,6 +1013,11 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jxr-plugin</artifactId>
                 <version>${version.jxr.plugin}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>findbugs-maven-plugin</artifactId>
+                <version>${version.findbugs.plugin}</version>
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
