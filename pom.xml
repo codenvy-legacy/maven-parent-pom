@@ -97,12 +97,14 @@
         <!-- **************************************** -->
         <jira.base.url>https://jira.codenvy.com</jira.base.url>
         <jira.project.key>PAR</jira.project.key>
+        <maven-model.version>3.0.5</maven-model.version>
         <!-- This version is necessary for use with git version 1.8.5 - PAR-286-->
         <maven-scm-provider-gitexe.version>1.8.1</maven-scm-provider-gitexe.version>
         <!-- The version of maven-scm-provider-svnjava to use -->
         <maven-scm-provider-svnjava.version>2.1.0</maven-scm-provider-svnjava.version>
         <!-- Additional properties to activate the compression of already compressed archives - time expensive -->
         <maven.assembly.recompressZippedFiles>false</maven.assembly.recompressZippedFiles>
+        <maven.build.timestamp.format>dd.MM.yy HH:mm</maven.build.timestamp.format>
         <maven.compiler.optimize>true</maven.compiler.optimize>
         <maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
         <maven.compiler.showWarnings>true</maven.compiler.showWarnings>
@@ -218,6 +220,7 @@
         <version.rar.plugin>2.3</version.rar.plugin>
         <version.release.plugin>2.4.2</version.release.plugin>
         <version.remote-resources.plugin.version>1.5</version.remote-resources.plugin.version>
+        <version.replacer.plugin>1.5.2</version.replacer.plugin>
         <version.resources.plugin>2.6</version.resources.plugin>
         <version.selenium.plugin>2.3</version.selenium.plugin>
         <version.shade.plugin>2.2</version.shade.plugin>
@@ -258,10 +261,79 @@
         <pluginManagement>
             <!-- All plugins ordered by shortname (antrun, assembly ...) -->
             <plugins>
+                <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+                <plugin>
+                    <groupId>org.eclipse.m2e</groupId>
+                    <artifactId>lifecycle-mapping</artifactId>
+                    <version>1.0.0</version>
+                    <configuration>
+                        <lifecycleMappingMetadata>
+                            <pluginExecutions>
+                                <pluginExecution>
+                                    <pluginExecutionFilter>
+                                        <groupId>org.codehaus.mojo</groupId>
+                                        <artifactId>exec-maven-plugin</artifactId>
+                                        <versionRange>[1.2.1,)</versionRange>
+                                        <goals>
+                                            <goal>java</goal>
+                                        </goals>
+                                    </pluginExecutionFilter>
+                                    <action>
+                                        <ignore />
+                                    </action>
+                                </pluginExecution>
+                                <pluginExecution>
+                                    <pluginExecutionFilter>
+                                        <groupId>com.codenvy.platform-api</groupId>
+                                        <artifactId>codenvy-dto-maven-plugin</artifactId>
+                                        <versionRange>[0.4.0-SNAPSHOT,)</versionRange>
+                                        <goals>
+                                            <goal>generate</goal>
+                                        </goals>
+                                    </pluginExecutionFilter>
+                                    <action>
+                                        <ignore />
+                                    </action>
+                                </pluginExecution>
+                                <pluginExecution>
+                                    <pluginExecutionFilter>
+                                        <groupId>org.apache.maven.plugins</groupId>
+                                        <artifactId>maven-dependency-plugin</artifactId>
+                                        <versionRange>${version.dependency.plugin}</versionRange>
+                                        <goals>
+                                            <goal>copy</goal>
+                                        </goals>
+                                    </pluginExecutionFilter>
+                                    <action>
+                                        <ignore />
+                                    </action>
+                                </pluginExecution>
+                                <pluginExecution>
+                                    <pluginExecutionFilter>
+                                        <groupId>com.google.code.maven-replacer-plugin</groupId>
+                                        <artifactId>replacer</artifactId>
+                                        <versionRange>${version.replacer.plugin}</versionRange>
+                                        <goals>
+                                            <goal>replace</goal>
+                                        </goals>
+                                    </pluginExecutionFilter>
+                                    <action>
+                                        <ignore />
+                                    </action>
+                                </pluginExecution>
+                            </pluginExecutions>
+                        </lifecycleMappingMetadata>
+                    </configuration>
+                </plugin>
                 <plugin>
                     <groupId>com.jayway.maven.plugins.android.generation2</groupId>
                     <artifactId>android-maven-plugin</artifactId>
                     <version>${version.android.plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>com.google.code.maven-replacer-plugin</groupId>
+                    <artifactId>replacer</artifactId>
+                    <version>${version.replacer.plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
