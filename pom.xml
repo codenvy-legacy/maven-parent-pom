@@ -27,8 +27,8 @@
     </organization>
     <licenses>
         <license>
-            <name>GNU Lesser General Public License, Version 3.0</name>
-            <url>http://www.gnu.org/licenses/agpl-3.0.txt</url>
+            <name>Eclipse Public License v1.0</name>
+            <url>http://www.eclipse.org/legal/epl-v10.html</url>
             <distribution>repo</distribution>
         </license>
     </licenses>
@@ -742,7 +742,7 @@
                             <h_currentYear>${currentYear}</h_currentYear>
                             <h_copyrightOwner>${project.organization.name}</h_copyrightOwner>
                         </properties>
-                        <failIfMissing>true</failIfMissing>
+                        <failIfMissing>false</failIfMissing>
                         <strictCheck>true</strictCheck>
                         <!-- We're only interested in checking our sources and our POMs -->
                         <includes>
