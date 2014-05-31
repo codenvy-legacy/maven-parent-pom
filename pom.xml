@@ -828,6 +828,9 @@
                             <exclude>**/*.xls</exclude>
                             <exclude>**/META-INF/services/**</exclude>
                             <exclude>**/*.pem</exclude>
+                            <exclude>**/*.txt</exclude>
+                            <exclude>**/*.log</exclude>
+                            <exclude>**/README</exclude>
                         </excludes>
                         <headerDefinitions>
                             <headerDefinition>javadoc.xml</headerDefinition>
