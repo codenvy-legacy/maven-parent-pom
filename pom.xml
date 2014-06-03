@@ -832,6 +832,7 @@
                             <exclude>**/*.pem</exclude>
                             <exclude>**/*.txt</exclude>
                             <exclude>**/*.log</exclude>
+                            <exclude>**/*.svg</exclude>
                             <exclude>**/README</exclude>
                             <exclude>**/codenvy-dto/src/main/java/com/codenvy/dto/**</exclude>
                         </excludes>
