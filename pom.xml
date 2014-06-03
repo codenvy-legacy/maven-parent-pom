@@ -91,6 +91,7 @@
         <!-- **************************************** -->
         <jira.base.url>https://jira.codenvycorp.com</jira.base.url>
         <jira.project.key>PAR</jira.project.key>
+        <license_years>${project.inceptionYear}-${currentYear}</license_years>
         <maven-model.version>3.0.5</maven-model.version>
         <!-- This version is necessary for use with git version 1.8.5 - PAR-286-->
         <maven-scm-provider-gitexe.version>1.8.1</maven-scm-provider-gitexe.version>
@@ -741,6 +742,7 @@
                             <h_inceptionYear>${project.inceptionYear}</h_inceptionYear>
                             <h_currentYear>${currentYear}</h_currentYear>
                             <h_copyrightOwner>${project.organization.name}</h_copyrightOwner>
+                            <h_license_years>${license_years}</h_license_years>
                         </properties>
                         <failIfMissing>false</failIfMissing>
                         <strictCheck>true</strictCheck>
