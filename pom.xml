@@ -834,10 +834,6 @@
                             <exclude>**/*.log</exclude>
                             <exclude>**/*.svg</exclude>
                             <exclude>**/README</exclude>
-                            <exclude>**/*.htm</exclude>
-                            <exclude>**/*.html</exclude>
-                            <exclude>**/*.js</exclude>
-                            <exclude>**/*.css</exclude>
                             <exclude>**/codenvy-dto/src/main/java/com/codenvy/dto/**</exclude>
                         </excludes>
                         <headerDefinitions>
