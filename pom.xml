@@ -8,7 +8,7 @@
     http://www.eclipse.org/legal/epl-v10.html
 
     Contributors:
-    Codenvy, S.A. - initial API and implementation
+      Codenvy, S.A. - initial API and implementation
 
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -204,7 +204,7 @@
         <version.jxr.plugin>2.4</version.jxr.plugin>
         <version.lesscss.plugin>1.3.3</version.lesscss.plugin>
         <!-- PAR-92 : Bundle used to manage file headers -->
-        <version.license-bundle>1-SNAPSHOT</version.license-bundle>
+        <version.license-bundle>1</version.license-bundle>
         <version.license-header>codenvy-eclipse-license-resource-bundle</version.license-header>
         <version.license.plugin>1.7</version.license.plugin>
         <version.mycila-license.plugin>2.6</version.mycila-license.plugin>
