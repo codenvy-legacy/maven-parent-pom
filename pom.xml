@@ -840,6 +840,12 @@
                             <exclude>**/setenv.bat</exclude>
                             <exclude>**/*.json</exclude>
                             <exclude>**/catalina.properties</exclude>
+                            <exclude>**/logging.properties</exclude>
+                            <exclude>**/jaas.conf</exclude>
+                            <exclude>**/jmxremote.access</exclude>
+                            <exclude>**/jmxremote.password</exclude>
+                            <exclude>**/tomcat-users.xml</exclude>
+
                         </excludes>
                         <headerDefinitions>
                             <headerDefinition>javadoc.xml</headerDefinition>
