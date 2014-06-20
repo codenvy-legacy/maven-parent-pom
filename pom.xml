@@ -734,7 +734,7 @@
                             <h_copyrightOwner>${project.organization.name}</h_copyrightOwner>
                             <h_license_years>${license_years}</h_license_years>
                         </properties>
-                        <failIfMissing>false</failIfMissing>
+                        <failIfMissing>true</failIfMissing>
                         <strictCheck>true</strictCheck>
                         <!-- We're only interested in checking our sources and our POMs -->
                         <includes>
