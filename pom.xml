@@ -1097,32 +1097,7 @@
                     <timestampFormat>{0, date,yyyyMMdd}</timestampFormat>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>com.google.code.sortpom</groupId>
-                <artifactId>maven-sortpom-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>verify</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <!-- Adding header to file -->
-            <plugin>
-                <groupId>com.mycila</groupId>
-                <artifactId>license-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>check-headers</id>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+
         </plugins>
     </build>
     <reporting>
@@ -1427,6 +1402,47 @@
                 <maven.war.recompressZippedFiles>true</maven.war.recompressZippedFiles>
             </properties>
         </profile>
+
+        <profile>
+            <id>validate-sources</id>
+            <activation>
+                <property>
+                    <name>!skip-validate-sources</name>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.google.code.sortpom</groupId>
+                        <artifactId>maven-sortpom-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <phase>validate</phase>
+                                <goals>
+                                    <goal>verify</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <!-- Adding header to file -->
+                    <plugin>
+                        <groupId>com.mycila</groupId>
+                        <artifactId>license-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>check-headers</id>
+                                <phase>validate</phase>
+                                <goals>
+                                    <goal>check</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+
         <!--
     This profile is used to launch integration tests with the failsafe plugin
     http://maven.apache.org/plugins/maven-failsafe-plugin/
