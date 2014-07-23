@@ -93,10 +93,7 @@
         <jira.project.key>PAR</jira.project.key>
         <license_years>${project.inceptionYear}-${currentYear}</license_years>
         <maven-model.version>3.0.5</maven-model.version>
-        <!-- This version is necessary for use with git version 1.8.5 - PAR-286-->
-        <maven-scm-provider-gitexe.version>1.8.1</maven-scm-provider-gitexe.version>
-        <!-- The version of maven-scm-provider-svnjava to use -->
-        <maven-scm-provider-svnjava.version>2.1.0</maven-scm-provider-svnjava.version>
+       
         <!-- Additional properties to activate the compression of already compressed archives - time expensive -->
         <maven.assembly.recompressZippedFiles>false</maven.assembly.recompressZippedFiles>
         <maven.build.timestamp.format>dd.MM.yy HH:mm</maven.build.timestamp.format>
@@ -138,6 +135,25 @@
         <!-- Site URL                                 -->
         <!-- **************************************** -->
         <site.url>https://codenvy.com</site.url>
+        <!-- The Sonar Jacoco Listener for JUnit to extract coverage details per test -->
+        <sonar-jacoco-listeners.version>2.2.1</sonar-jacoco-listeners.version>
+        <!-- **************************************** -->
+        <!-- Sonar Settings                           -->
+        <!-- **************************************** -->
+        <sonar.host.url>http://sonar.codenvy-dev.com/</sonar.host.url>
+        <!-- Tells Sonar where the Jacoco coverage result file is located for Integration Tests -->
+        <sonar.jacoco.itReportPath>${jacoco.outputDir}/jacoco-it.exec</sonar.jacoco.itReportPath>
+        <!-- Tells Sonar where the Jacoco coverage result file is located for Unit Tests -->
+        <sonar.jacoco.reportPath>${jacoco.outputDir}/jacoco.exec</sonar.jacoco.reportPath>
+        <!-- Sonar/Jacoco integration. Note that these properties need to be defined outside the "coverage" profile
+         because we want to be to able to execute mvn sonar:sonar without passing a profile -->
+        <!-- Tells Sonar to use jacoco for coverage results -->
+        <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+        <sonar.java.source>${maven.compiler.source}</sonar.java.source>
+        <!-- ************************ -->
+        <!-- Sonar/Reporting settings -->
+        <!-- ************************ -->
+        <sonar.java.target>${maven.compiler.target}</sonar.java.target>
         <!-- maven-pmd-plugin -->
         <targetJdk>${maven.compiler.target}</targetJdk>
         <!-- maven-clirr-plugin -->
@@ -188,6 +204,7 @@
         <version.idea.plugin>2.2.1</version.idea.plugin>
         <version.install.plugin>2.5.1</version.install.plugin>
         <version.invoker.plugin>1.8</version.invoker.plugin>
+        <version.jacoco.plugin>0.7.1.201405082137</version.jacoco.plugin>
         <version.jar.plugin>2.4</version.jar.plugin>
         <version.jarjar.plugin>1.9</version.jarjar.plugin>
         <version.javacc.plugin>2.6</version.javacc.plugin>
@@ -564,14 +581,6 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-gpg-plugin</artifactId>
                     <version>${version.gpg.plugin}</version>
-                    <dependencies>
-                        <!-- PAR-193 : To be removed when the plugin will have a version of plexus-utils >= 3.0.7 -->
-                        <dependency>
-                            <groupId>org.codehaus.plexus</groupId>
-                            <artifactId>plexus-utils</artifactId>
-                            <version>${version.plexus-utils}</version>
-                        </dependency>
-                    </dependencies>
                     <configuration>
                         <passphrase>${gpg.passphrase}</passphrase>
                         <useAgent>${gpg.useagent}</useAgent>
@@ -596,6 +605,11 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-invoker-plugin</artifactId>
                     <version>${version.invoker.plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.jacoco</groupId>
+                    <artifactId>jacoco-maven-plugin</artifactId>
+                    <version>${version.jacoco.plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -865,19 +879,6 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-release-plugin</artifactId>
                     <version>${version.release.plugin}</version>
-                    <dependencies>
-                        <dependency>
-                            <groupId>com.google.code.maven-scm-provider-svnjava</groupId>
-                            <artifactId>maven-scm-provider-svnjava</artifactId>
-                            <version>${maven-scm-provider-svnjava.version}</version>
-                        </dependency>
-                        <dependency>
-                            <groupId>org.apache.maven.scm</groupId>
-                            <artifactId>maven-scm-provider-gitexe</artifactId>
-                            <!-- This version is necessary for use with git version 1.8.5 - PAR-286-->
-                            <version>${maven-scm-provider-gitexe.version}</version>
-                        </dependency>
-                    </dependencies>
                     <configuration>
                         <!-- maven-release-plugin -->
                         <goals>deploy</goals>
@@ -1084,20 +1085,18 @@
                 <artifactId>buildnumber-maven-plugin</artifactId>
                 <executions>
                     <execution>
-                        <phase>validate</phase>
                         <goals>
                             <goal>create</goal>
                         </goals>
+                        <configuration>
+                            <buildNumberPropertyName>buildNumber</buildNumberPropertyName>
+                            <revisionOnScmFailure>no_revision</revisionOnScmFailure>
+                            <getRevisionOnlyOnce>true</getRevisionOnlyOnce>
+                            <timestampFormat>{0, date,yyyyMMdd}</timestampFormat>
+                        </configuration>
                     </execution>
                 </executions>
-                <configuration>
-                    <buildNumberPropertyName>buildNumber</buildNumberPropertyName>
-                    <revisionOnScmFailure>no_revision</revisionOnScmFailure>
-                    <getRevisionOnlyOnce>true</getRevisionOnlyOnce>
-                    <timestampFormat>{0, date,yyyyMMdd}</timestampFormat>
-                </configuration>
             </plugin>
-
         </plugins>
     </build>
     <reporting>
@@ -1160,18 +1159,22 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-changes-plugin</artifactId>
                 <version>${version.changes.plugin}</version>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            <report>jira-report</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
                 <configuration>
-                    <issueManagementSystems>
-                        <issueManagementSystem>JIRA</issueManagementSystem>
-                    </issueManagementSystems>
+                    <useJql>true</useJql>
                     <maxEntries>1000</maxEntries>
                     <runOnlyAtExecutionRoot>true</runOnlyAtExecutionRoot>
-                    <useJql>true</useJql>
                     <onlyCurrentVersion>true</onlyCurrentVersion>
-                    <columnNames>Type,Key,Summary,Assignee,Status,Resolution,Fix Version</columnNames>
-                    <sortColumnNames>Type,Key DESC</sortColumnNames>
-                    <resolutionIds>Unresolved,Fixed,Won't Fix,Duplicate,Incomplete,Cannot Reproduce</resolutionIds>
-                    <statusIds>Resolved,Closed</statusIds>
+                    <statusIds>Resolved,Closed,Done</statusIds>
+                    <resolutionIds>Fixed,Won't Fix,Duplicate,Incomplete,Cannot Reproduce,Workaround,Normal Behavior,Done</resolutionIds>
+                    <columnNames>Priority,Type,Key,Summary,Component,Status,Resolution,Fix Version</columnNames>
+                    <sortColumnNames>Fix Version DESC,Type DESC,Priority DESC</sortColumnNames>
                 </configuration>
             </plugin>
             <plugin>
@@ -1475,6 +1478,108 @@
             </build>
         </profile>
         <!--
+    This profile executes tests coverage for UTs and ITs with Jacoco.
+    -->
+        <profile>
+            <id>coverage</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <configuration>
+                            <!-- Specific to generate mapping between tests and covered code -->
+                            <properties>
+                                <property>
+                                    <name>listener</name>
+                                    <value>org.sonar.java.jacoco.JUnitListener</value>
+                                </property>
+                            </properties>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                        <configuration>
+                            <!-- Specific to generate mapping between tests and covered code -->
+                            <properties>
+                                <property>
+                                    <name>listener</name>
+                                    <value>org.sonar.java.jacoco.JUnitListener</value>
+                                </property>
+                            </properties>
+                            <!-- Let's put failsafe reports with surefire to have access to tests failures/success reports in sonar -->
+                            <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.jacoco</groupId>
+                        <artifactId>jacoco-maven-plugin</artifactId>
+                        <version>${version.jacoco.plugin}</version>
+                        <executions>
+                            <execution>
+                                <id>prepare-ut-agent</id>
+                                <goals>
+                                    <goal>prepare-agent</goal>
+                                </goals>
+                                <configuration>
+                                    <destFile>${sonar.jacoco.reportPath}</destFile>
+                                    <append>true</append>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>prepare-it-agent</id>
+                                <goals>
+                                    <goal>prepare-agent-integration</goal>
+                                </goals>
+                                <configuration>
+                                    <destFile>${sonar.jacoco.itReportPath}</destFile>
+                                    <append>true</append>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+            <dependencies>
+                <dependency>
+                    <groupId>org.codehaus.sonar-plugins.java</groupId>
+                    <artifactId>sonar-jacoco-listeners</artifactId>
+                    <version>${sonar-jacoco-listeners.version}</version>
+                    <scope>test</scope>
+                </dependency>
+            </dependencies>
+            <reporting>
+                <plugins>
+                    <plugin>
+                        <groupId>org.jacoco</groupId>
+                        <artifactId>jacoco-maven-plugin</artifactId>
+                        <version>${version.jacoco.plugin}</version>
+                        <reportSets>
+                            <reportSet>
+                                <id>default-report</id>
+                                <reports>
+                                    <report>report</report>
+                                </reports>
+                                <configuration>
+                                    <dataFile>${sonar.jacoco.reportPath}</dataFile>
+                                </configuration>
+                            </reportSet>
+                            <reportSet>
+                                <id>default-report-integration</id>
+                                <reports>
+                                    <report>report-integration</report>
+                                </reports>
+                                <configuration>
+                                    <dataFile>${sonar.jacoco.itReportPath}</dataFile>
+                                </configuration>
+                            </reportSet>
+                        </reportSets>
+                    </plugin>
+                </plugins>
+            </reporting>
+        </profile>
+        <!--
      Checks backward compatibility is maintained
      -->
         <profile>
@@ -1485,12 +1590,12 @@
                     <plugin>
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>clirr-maven-plugin</artifactId>
-                        <configuration>
-                            <failOnError>false</failOnError>
-                        </configuration>
                     </plugin>
                 </plugins>
             </build>
+            <properties>
+                <failOnError>false</failOnError>
+            </properties>
         </profile>
         <!--
      Reformat POMs
