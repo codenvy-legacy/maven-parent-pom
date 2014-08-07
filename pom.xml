@@ -89,7 +89,6 @@
             <jacoco.outputDir>${session.executionRootDirectory}/target/</jacoco.outputDir>
     -->
         <jacoco.outputDir>${project.build.directory}</jacoco.outputDir>
-
         <jdk.min.version>${maven.compiler.source}</jdk.min.version>
         <!-- **************************************** -->
         <!-- Jenkins Settings                         -->
@@ -103,7 +102,6 @@
         <jira.project.key>PAR</jira.project.key>
         <license_years>${project.inceptionYear}-${currentYear}</license_years>
         <maven-model.version>3.0.5</maven-model.version>
-       
         <!-- Additional properties to activate the compression of already compressed archives - time expensive -->
         <maven.assembly.recompressZippedFiles>false</maven.assembly.recompressZippedFiles>
         <maven.build.timestamp.format>dd.MM.yy HH:mm</maven.build.timestamp.format>
@@ -128,7 +126,7 @@
         <maven.war.attachClasses>false</maven.war.attachClasses>
         <maven.war.recompressZippedFiles>false</maven.war.recompressZippedFiles>
         <!-- These properties are automatically computed during the build -->
-        <parsedVersion.majorVersion>N/A</parsedVersion.majorVersion>
+        <!--parsedVersion.majorVersion>N/A</parsedVersion.majorVersion-->
         <product.name>${project.name}</product.name>
         <!-- ************** -->
         <!-- Build settings -->
@@ -164,6 +162,7 @@
         <!-- Sonar/Reporting settings -->
         <!-- ************************ -->
         <sonar.java.target>${maven.compiler.target}</sonar.java.target>
+        <specification.version>${parsedVersion.majorVersion}.0</specification.version>
         <!-- maven-pmd-plugin -->
         <targetJdk>${maven.compiler.target}</targetJdk>
         <!-- maven-clirr-plugin -->
@@ -475,7 +474,7 @@
                                 <SCM-URL>${project.scm.connection}</SCM-URL>
                                 <SCM-Revision>${buildNumber}</SCM-Revision>
                                 <Specification-Title>${product.name}</Specification-Title>
-                                <Specification-Version>${parsedVersion.majorVersion}.0</Specification-Version>
+                                <Specification-Version>${specification.version}</Specification-Version>
                                 <Specification-Vendor>${project.organization.name}</Specification-Vendor>
                                 <Implementation-Title>${project.name}</Implementation-Title>
                                 <Implementation-Version>${project.version}</Implementation-Version>
@@ -521,7 +520,7 @@
                                 <SCM-URL>${project.scm.connection}</SCM-URL>
                                 <SCM-Revision>${buildNumber}</SCM-Revision>
                                 <Specification-Title>${product.name}</Specification-Title>
-                                <Specification-Version>${parsedVersion.majorVersion}.0</Specification-Version>
+                                <Specification-Version>${specification.version}</Specification-Version>
                                 <Specification-Vendor>${project.organization.name}</Specification-Vendor>
                                 <Implementation-Title>${project.name}</Implementation-Title>
                                 <Implementation-Version>${project.version}</Implementation-Version>
@@ -637,7 +636,7 @@
                                 <SCM-URL>${project.scm.connection}</SCM-URL>
                                 <SCM-Revision>${buildNumber}</SCM-Revision>
                                 <Specification-Title>${product.name}</Specification-Title>
-                                <Specification-Version>${parsedVersion.majorVersion}.0</Specification-Version>
+                                <Specification-Version>${specification.version}</Specification-Version>
                                 <Specification-Vendor>${project.organization.name}</Specification-Vendor>
                                 <Implementation-Title>${project.name}</Implementation-Title>
                                 <Implementation-Version>${project.version}</Implementation-Version>
@@ -1083,7 +1082,6 @@
                 <executions>
                     <execution>
                         <id>parse-version</id>
-                        <phase>prepare-package</phase>
                         <goals>
                             <goal>parse-version</goal>
                         </goals>
@@ -1416,7 +1414,6 @@
                 <maven.war.recompressZippedFiles>true</maven.war.recompressZippedFiles>
             </properties>
         </profile>
-
         <profile>
             <id>validate-sources</id>
             <activation>
@@ -1455,8 +1452,6 @@
                 </plugins>
             </build>
         </profile>
-
-
         <!--
     This profile is used to launch integration tests with the failsafe plugin
     http://maven.apache.org/plugins/maven-failsafe-plugin/
