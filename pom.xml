@@ -185,6 +185,7 @@
         <version.assembly.plugin>2.4</version.assembly.plugin>
         <version.buildhelper.plugin>1.9</version.buildhelper.plugin>
         <version.buildnumber.plugin>1.3</version.buildnumber.plugin>
+        <version.bundle.plugin>2.5.0</version.bundle.plugin>
         <version.cargo.plugin>1.4.8</version.cargo.plugin>
         <version.changes.plugin>2.10</version.changes.plugin>
         <version.checkstyle.plugin>2.12.1</version.checkstyle.plugin>
@@ -228,6 +229,7 @@
         <version.jodconverter.plugin>2.2.1</version.jodconverter.plugin>
         <version.jstools.plugin>0.7</version.jstools.plugin>
         <version.jxr.plugin>2.4</version.jxr.plugin>
+        <version.karaf.plugin>3.0.1</version.karaf.plugin>
         <version.lesscss.plugin>1.7.0.1.1</version.lesscss.plugin>
         <!-- PAR-92 : Bundle used to manage file headers -->
         <version.license-bundle>1</version.license-bundle>
@@ -357,6 +359,16 @@
                     <groupId>com.google.code.maven-replacer-plugin</groupId>
                     <artifactId>replacer</artifactId>
                     <version>${version.replacer.plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.karaf.tooling</groupId>
+                    <artifactId>karaf-maven-plugin</artifactId>
+                    <version>${version.karaf.plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.felix</groupId>
+                    <artifactId>maven-bundle-plugin</artifactId>
+                    <version>${version.bundle.plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
