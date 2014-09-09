@@ -232,7 +232,7 @@
         <version.karaf.plugin>3.0.1</version.karaf.plugin>
         <version.lesscss.plugin>1.7.0.1.1</version.lesscss.plugin>
         <!-- PAR-92 : Bundle used to manage file headers -->
-        <version.license-bundle>1</version.license-bundle>
+        <version.license-bundle>2</version.license-bundle>
         <version.license-header>codenvy-eclipse-license-resource-bundle</version.license-header>
         <version.license.plugin>1.7</version.license.plugin>
         <version.mycila-license.plugin>2.6</version.mycila-license.plugin>
