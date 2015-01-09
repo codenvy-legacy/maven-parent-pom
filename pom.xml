@@ -852,7 +852,6 @@
                             <exclude>**/*.log</exclude>
                             <exclude>**/*.svg</exclude>
                             <exclude>**/README</exclude>
-                            <exclude>**/che.bat</exclude>
                             <exclude>**/server.xml</exclude>
                             <exclude>**/setenv.sh</exclude>
                             <exclude>**/setenv.bat</exclude>
