@@ -263,6 +263,20 @@
         <version.xml.plugin>1.0</version.xml.plugin>
         <version.yuicompressor.plugin>0.7.1</version.yuicompressor.plugin>
     </properties>
+    <repositories>
+        <repository>
+            <id>codenvy-public-repo</id>
+            <name>codenvy public</name>
+            <url>https://maven.codenvycorp.com/content/groups/public/</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>codenvy-plugin-public-repo</id>
+            <name>codenvy plugin public</name>
+            <url>https://maven.codenvycorp.com/content/groups/public/</url>
+        </pluginRepository>
+    </pluginRepositories>
     <build>
         <extensions>
             <extension>
