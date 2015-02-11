@@ -235,7 +235,7 @@
         <version.license-bundle>4</version.license-bundle>
         <version.license-header>codenvy-eclipse-license-resource-bundle</version.license-header>
         <version.license.plugin>1.7</version.license.plugin>
-        <version.mycila-license.plugin>2.6</version.mycila-license.plugin>
+        <version.mycila-license.plugin>2.8</version.mycila-license.plugin>
         <!-- PAR-193 : performances boost workaround -->
         <version.plexus-utils>3.0.18</version.plexus-utils>
         <version.plexus.plugin>1.3.8</version.plexus.plugin>
