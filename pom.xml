@@ -1300,6 +1300,7 @@
                                                 <exclude>commons-logging:commons-logging</exclude>
                                                 <exclude>commons-logging:commons-logging-api</exclude>
                                                 <exclude>concurrent:concurrent</exclude>
+                                                <exclude>com.google.code.findbugs:annotations</exclude>
                                                 <exclude>javax.servlet:servlet-api</exclude>
                                                 <exclude>javax.xml:jaxrpc-api</exclude>
                                                 <exclude>javax.xml.soap:saaj-api</exclude>
